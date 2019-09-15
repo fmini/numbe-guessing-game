@@ -71,4 +71,5 @@ do {
 		break;
 	}
 } while ( guessNum < 5 );
+
 console.log( `final guess was ${ guess }` );
