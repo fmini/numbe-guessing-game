@@ -14,7 +14,7 @@ guess = prompt( 'What is your first guess between 1 and 10?' );
 do {
 	console.log( guesses );
 	// Check if guess is between 1 and 10
-	if ( isNaN( guess ) || guess < 1 || guess > 10 ) {
+	if ( isNaN( guess ) || parseInt.guess < 1 || parseInt.guess > 10 ) {
 		console.log(
 			`guess ${ guessNum } is ${
 				parseInt.guess
@@ -26,7 +26,7 @@ do {
 	}
 
 	// Check if number was already guessed
-	else if ( guesses.includes( guess ) ) {
+	else if ( guesses.includes( parseInt.guess ) ) {
 		console.log(
 			`guess ${ guessNum } is ${ guess } and already guessed that number ran`
 		);
@@ -36,7 +36,7 @@ do {
 	}
 
 	// Check if guess is correct
-	else if ( guess != randomNum ) {
+	else if ( parseInt.guess !== randomNum ) {
 		console.log(
 			`guess ${ guessNum } was ${ guess } and was checked  against ${ randomNum } and is wrong.`
 		);
@@ -48,7 +48,7 @@ do {
 	}
 
 	// Alert that they guessed correctly
-	else if ( guess == randomNum ) {
+	else if ( parseInt.guess == randomNum ) {
 		console.log( `guess ${ guessNum } was ${ guess } and equalled randomNum` );
 		alert( 'You Won!' );
 		break;
