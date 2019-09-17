@@ -1,7 +1,7 @@
 //create variables
 const randomNum = Math.floor( Math.random() * 10 + 1 );
 let guess = 0;
-let guessNum = 1;
+let guessNum = 0;
 const guesses = [];
 const userName = 'NoName';
 
@@ -12,7 +12,7 @@ console.log( randomNum );
 alert( `OK, ${ userName }, let's play a game. You will have 5 guesses. Ready?` );
 
 do {
-	if ( guessNum == 1 ) {
+	if ( guessNum == 0 ) {
 		guess = prompt( `What is your first guess, ${ userName }?` );
 		console.log( guessNum );
 	}
@@ -68,3 +68,10 @@ do {
 } while ( guessNum < 5 );
 
 console.log( `final guess was ${ guess }` );
+
+if ( guess == randomNum ) {
+	console.log( `guess ${ guessNum } was ${ guess } and equalled randomNum` );
+	alert( 'You Won!' );
+} else {
+	alert( 'Not very good at this are you?' );
+}
