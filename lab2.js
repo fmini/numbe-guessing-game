@@ -10,11 +10,15 @@ console.log( randomNum );
 // ask user for their name and first guess
 //userName = prompt( 'What is your name?' );
 alert( `OK, ${ userName }, let's play a game. You will have 5 guesses. Ready?` );
-guess = prompt( 'What is your first guess between 1 and 10?' );
+
 do {
-	console.log( guesses );
+	if ( guessNum == 1 ) {
+		guess = prompt( `What is your first guess, ${ userName }?` );
+		console.log( guessNum );
+	}
+
 	// Check if guess is between 1 and 10
-	if ( isNaN( guess ) || guess < 1 || guess > 10 ) {
+	else if ( isNaN( guess ) || guess < 1 || guess > 10 ) {
 		console.log(
 			`guess ${ guessNum } is ${
 				parseInt.guess
@@ -26,7 +30,7 @@ do {
 	}
 
 	// Check if number was already guessed
-	else if ( guesses.includes( guess ) ) {
+	else if ( guesses.includes( guess ) && guessNum != 2 ) {
 		console.log(
 			`guess ${ guessNum } is ${ guess } and already guessed that number ran`
 		);
@@ -59,7 +63,7 @@ do {
 		alert( 'Not so good at this are you?' );
 	}
 	guesses.push( guess );
-	console.log[ guesses ];
+	console.log( guesses );
 	guessNum++;
 } while ( guessNum < 5 );
 
