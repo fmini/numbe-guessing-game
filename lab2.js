@@ -15,6 +15,7 @@ do {
 	if ( guessNum == 0 ) {
 		guess = prompt( `What is your first guess, ${ userName }?` );
 		console.log( guessNum );
+		guesses[ guessNum ] = guess;
 	}
 
 	// Check if guess is between 1 and 10
@@ -27,16 +28,18 @@ do {
 		guess = prompt( `Rules a little tough for you, ${ userName }?
       Let's try that again. You have ${ 5 - guessNum } tries remaining
 			Try a number between 1 and 10.` );
+		guesses[ guessNum ] = guess;
 	}
 
 	// Check if number was already guessed
-	else if ( guesses.includes( guess ) && guessNum != 2 ) {
+	else if ( guesses.slice( 0, -1 ).includes( guess ) && guessNum != 1 ) {
 		console.log(
 			`guess ${ guessNum } is ${ guess } and already guessed that number ran`
 		);
 		guess = prompt( `You already said ${ guess }, ${ userName }, try again. You have ${ 5 -
       guessNum } tries remaining.
-			Enter a different number.` );
+			Enter a different number. ${ guesses }` );
+		guesses[ guessNum ] = guess;
 	}
 
 	// Check if guess is correct
@@ -49,6 +52,7 @@ do {
 			`Nope, not what I was thinking, try again. You have ${ 5 -
         guessNum } tries remaining. Enter a different number.`
 		);
+		guesses[ guessNum ] = guess;
 	}
 
 	// Alert that they guessed correctly
@@ -62,8 +66,8 @@ do {
 	else {
 		alert( 'Not so good at this are you?' );
 	}
-	guesses.push( guess );
-	console.log( guesses );
+
+	console.log( `guess number ${ guessNum }` );
 	guessNum++;
 } while ( guessNum < 5 );
 
